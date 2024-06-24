@@ -1,6 +1,7 @@
 import React from "react";
-import {Container,LogoutBtn,Logo} from "../index";
-import { Link } from "react-router-dom";
+import {Logoutbtn,Logo,Button} from "../index";
+import Container from "../container/Container";
+import { Link} from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -52,16 +53,16 @@ function Header () {
               {navItems.map((item) => 
               item.active ? (
                 <li key={item.name}>
-                  <button
+                  <Button
                   onClick={() => navigate(item.slug)}
                   className='inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full'
-                  >{item.name}</button>
+                  >{item.name}</Button>
                 </li>
               ) : null
               )}
               {authStatus && (
                 <li>
-                  <LogoutBtn />
+                  <Logoutbtn />
                 </li>
               )}
             </ul>

@@ -1,6 +1,6 @@
 import React, {useId} from 'react'
 
-function Select({
+function select({
     options,
     label,
     className,
@@ -26,4 +26,4 @@ function Select({
   )
 }
 
-export default React.forwardRef(Select)
+export default React.forwardRef(select);
