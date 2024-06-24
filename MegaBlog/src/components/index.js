@@ -1,7 +1,7 @@
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Logo from "./Logo";
 import select from "./select";
+import Logo from "./Logo";
 import Logoutbtn from "./Header/Logoutbtn"
 import Container from "./container/Container";
 import RTE from "./RTE";
@@ -18,7 +18,7 @@ import Hero from "./Hero";
 
 
 export { Header,Footer,
-     Logo,select,Logoutbtn,Container,
+     select,Logo,Logoutbtn,Container,
     RTE,Signup,Login,Button,
     PostForm,PostCard,Loader,AuthLayout, Input,Hero
     };
