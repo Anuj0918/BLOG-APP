@@ -20,7 +20,7 @@ function EditPost() {
         }
     }, [slug, navigate])
   return post ? (
-    <div className='py-8'>
+    <div className='!w-[90%] mx-auto max-ml:h-fi'>
         <Container>
             <PostForm post={post} />
         </Container>

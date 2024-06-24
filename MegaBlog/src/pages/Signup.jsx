@@ -1,12 +1,9 @@
 import React from 'react'
-import { Signup as SignupComponent } from '../components'
-
-function Signup() {
+import { Container, Signup as SignupComponent } from '../components/index'
+export default function Signup() {
   return (
-    <div className='py-8'>
-        <SignupComponent />
-    </div>
+    <Container classname='flex justify-center items-center '>
+      <SignupComponent />
+    </Container>
   )
 }
-
-export default Signup

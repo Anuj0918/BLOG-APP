@@ -3,7 +3,7 @@ import { Container, PostForm } from '../components'
 
 function AddPost() {
   return (
-    <div className='py-8'>
+    <div className='flex justify-center items-center !w-[90%] mx-auto max-ml:h-fi'>
         <Container>
             <PostForm />
         </Container>

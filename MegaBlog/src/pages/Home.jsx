@@ -1,48 +1,49 @@
 import React, {useEffect, useState} from 'react'
 import appwriteService from "../appwrite/config";
-// import {Container, PostCard} from '../components';
-import { Container } from '../components';
-import PostCard from '../components/PostCard';
+import { useSelector } from 'react-redux';
+import {PostCard,Hero,Container} from '../components/index';
 
 function Home() {
-    const [posts, setPosts] = useState([])
-
+    const [Posts, setPosts] = useState([]);
+    const authStatus=useSelector((state)=>state.auth.status)
     useEffect(() => {
-        appwriteService.getPosts().then((posts) => {
-            if (posts) {
-                setPosts(posts.documents)
-            }
-        })
-    }, [])
+      appwriteService.getPosts().then((posts) => {
+        if (posts) {
+          setPosts(posts.documents);
+        }
+      });
+    }, []);
   
-    if (posts.length === 0) {
-        return (
-            <div className="w-full py-8 mt-4 text-center">
-                <Container>
-                    <div className="flex flex-wrap">
-                        <div className="p-2 w-full">
-                            <h1 className="text-2xl font-bold hover:text-gray-500">
-                                Login to read posts
-                            </h1>
-                        </div>
-                    </div>
-                </Container>
-            </div>
-        )
+    if (Posts.length === 0 && authStatus ) {
+      return (
+        <Container classname="flex justify-around items-center">
+          <h1 className="text-4xl max-ml:text-center">You Didn't Post AnyThing</h1>
+        </Container>
+      );
+    } 
+  
+    if(authStatus) {
+      return (
+        <Container>
+          <div className="flex flex-wrap w-[90%] mx-auto h-full overflow-y-scroll no-scrollbar ">
+            {Posts.map((post) => (
+              <div key={post.$id} className="p-2 w-1/4 max-ml:w-full">
+                <PostCard {...post} />
+              </div>
+            ))}
+            {/* <h1>{authStatus}</h1> */}
+          </div>
+        </Container>
+      );
     }
-    return (
-        <div className='w-full py-8'>
-            <Container>
-                <div className='flex flex-wrap'>
-                    {posts.map((post) => (
-                        <div key={post.$id} className='p-2 w-1/4'>
-                            <PostCard {...post} />
-                        </div>
-                    ))}
-                </div>
-            </Container>
-        </div>
-    )
+    else{
+      return (
+        <Container classname="flex justify-around items-center max-ml:flex-col ">
+          <Hero />
+        </Container>
+      );
+    }
 }
 
-export default Home
+
+export default  Home;

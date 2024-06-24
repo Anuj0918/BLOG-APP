@@ -9,14 +9,16 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Button from "./Button";
 import PostForm from "./postform/PostForm";
-import Postcard from "./PostCard";
+import PostCard from "./PostCard";
+import Loader from "./Loader";
 import AuthLayout from "./AuthLayout";
 import Input from"./Input";
+import Hero from "./Hero";
 
 
 
 export { Header,Footer,
      Logo,select,Logoutbtn,Container,
     RTE,Signup,Login,Button,
-    PostForm,Postcard,AuthLayout, Input,
+    PostForm,PostCard,Loader,AuthLayout, Input,Hero
     };

@@ -11,18 +11,17 @@ function ALLPosts() {
             setPosts(posts.documents)
         }
     })
-  return (
-    <div className='w-full py-8'>
-        <Container>
-            <div className='flex flex-wrap'>
-                {posts.map((post) => (
-                    <div key={post.$id} className='p-2 w-1/4'>
-                        <PostCard {...post} />
-                    </div>
-                ))}
+  
+    if(posts.length === 0) return <Container classname="flex justify-center items-center"><h1 className='text-8xl'>You have Not Post Anything.</h1></Container>
+    else return ( <Container classname="flex flex-wrap !w-[90%] mx-auto overflow-y-scroll no-scrollbar max-ml:h-fit" >
+      
+          {posts.map((post) => (
+            <div key={post.$id} className="p-2 w-1/4 max-ml:w-full h-fit">
+              <Card {...post}/>
             </div>
-            </Container>
-    </div>
+          ))}
+        
+    </Container>  
   )
 }
 

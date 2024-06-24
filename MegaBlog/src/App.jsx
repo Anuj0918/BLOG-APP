@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import authService from './appwrite/auth';
 import './App.css'
 import {login,logout} from './store/authSlice';
-import { Header,Footer } from './components';
+import { Header,Footer,Loader } from './components';
 import { Outlet } from 'react-router-dom';
 
 
@@ -24,18 +24,17 @@ function App() {
     .finally(() => setLoading(false))
   }, [])
 
-  return !loading ? (
-    <div className='min-h-screen flex flex-wrap content-between bg-red-400'>
-    <div className='w-full block'>
+  return loading ? (
+    <div className='h-screen bg-black flex justify-center items-center'>
+      <Loader/>
+    </div>
+  ): (
+    <div className='bg-gray-100'>
       <Header />
-      <main>
-      TODO:   <Outlet/>
-      </main>
+      <Outlet />
       <Footer />
     </div>
-  </div>
-) : null
-  
+  )
 }
 
 export default App
